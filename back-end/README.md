@@ -21,4 +21,4 @@
 - user     => Charli
 - email    => charli@email.com
 - password => 123456
-https://github.com/adamchainz/django-cors-headers
+- https://github.com/adamchainz/django-cors-headers
