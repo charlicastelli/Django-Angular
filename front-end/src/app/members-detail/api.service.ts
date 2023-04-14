@@ -13,7 +13,7 @@ export class ApiService {
 
   // Na tela home, quando clicar em um membro, envia o id para ca e abre tela exibindo os detalhes do membro
   // Buscar membro pelo id, mostrando todos os detalhes do membro buscado
-  getMember(id: string): Observable<any> {
+  getMember(id: number): Observable<any> {
     return this.httpClient.get(this.baseUrl + 'members/' + id + '/', {
       headers: this.httpHeaders,
     });
@@ -23,6 +23,20 @@ export class ApiService {
     let body = {name: member.name, surname: member.surname, phone: member.phone, email: member.email};
     return this.httpClient.put(this.baseUrl + 'members/' + member.id + '/', body, 
     {
+      headers: this.httpHeaders,
+    });
+  }
+
+  removeMember(id: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + 'members/' + id + '/',
+    {
+      headers: this.httpHeaders,
+    });
+  }
+
+  //listar todos os membros
+  getAllMembers(): Observable<any> {
+    return this.httpClient.get(this.baseUrl + 'members/', {
       headers: this.httpHeaders,
     });
   }

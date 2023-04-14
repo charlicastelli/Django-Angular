@@ -22,3 +22,4 @@
 - email    => charli@email.com
 - password => 123456
 - https://github.com/adamchainz/django-cors-headers
+- https://docs.djangoproject.com/en/2.2/howto/static-files/

@@ -24,4 +24,13 @@ export class ApiService {
       headers: this.httpHeaders,
     });
   }
+
+  saveNewMember(member: any): Observable<any> {
+    // const formData = new FormData();
+    // formData.append('photo', member.photo)
+    return this.httpClient.post(this.baseUrl + 'members/', member, {
+      headers: this.httpHeaders,
+    });
+  }
+  
 }

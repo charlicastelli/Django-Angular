@@ -6,9 +6,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MembersDetailComponent } from './members-detail/members-detail.component';
+import { NewMemberComponent } from './new-member/new-member.component';
 
 @NgModule({
-  declarations: [AppComponent, MembersDetailComponent],
+  declarations: [AppComponent, MembersDetailComponent, NewMemberComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

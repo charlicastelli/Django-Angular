@@ -6,3 +6,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - `ng g service api`
 - `ng g component members-detail`
 - `ng g service members-detail/api`
+- `ng g component new-member`
