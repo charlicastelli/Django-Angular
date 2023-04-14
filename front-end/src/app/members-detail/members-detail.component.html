@@ -1,14 +1,15 @@
 <h1>Member Detail component!</h1>
 Membro carregado: {{ selected_member.name }} - {{ selected_member.surname }}
 
-<img src="{{ selected_member.photo }}">
-<br> <input type="text" [(ngModel)]="selected_member.id" readonly> <br>
-<input type="text" [(ngModel)]="selected_member.name"> <br>
-<input type="text" [(ngModel)]="selected_member.surname"> <br>
-<input type="text" [(ngModel)]="selected_member.phone"> <br>
-<input type="text" [(ngModel)]="selected_member.email"> <br>
-<button (click)="update()">Update Member</button> <br><br>
+<img src="{{ selected_member.photo }}" />
+<br />
+<input type="text" [(ngModel)]="selected_member.id" readonly /> <br />
+<input type="text" [(ngModel)]="selected_member.name" /> <br />
+<input type="text" [(ngModel)]="selected_member.surname" /> <br />
+<input type="text" [(ngModel)]="selected_member.phone" /> <br />
+<input type="text" [(ngModel)]="selected_member.email" /> <br />
+<input type="file" (change)="onFileSelected($event)" /> <br /><br />
+<button (click)="update()">Update Member</button> <br /><br />
 
-
-<button (click)="newMember()">Novo</button> <br><br>
+<button (click)="newMember()">Novo</button> <br /><br />
 <button (click)="deleteMember()">Apagar</button>

@@ -26,11 +26,6 @@ export class ApiService {
   }
 
   saveNewMember(member: any): Observable<any> {
-    // const formData = new FormData();
-    // formData.append('photo', member.photo)
-    return this.httpClient.post(this.baseUrl + 'members/', member, {
-      headers: this.httpHeaders,
-    });
+    return this.httpClient.post(this.baseUrl + 'members/', member);
   }
-  
 }

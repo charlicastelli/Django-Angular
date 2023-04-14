@@ -19,17 +19,23 @@ export class ApiService {
     });
   }
 
-  updateMember(member: any): Observable<any> {
-    let body = {name: member.name, surname: member.surname, phone: member.phone, email: member.email};
-    return this.httpClient.put(this.baseUrl + 'members/' + member.id + '/', body, 
-    {
-      headers: this.httpHeaders,
-    });
+  updateMember(member: any, fileToUpload: File | null): Observable<any> {
+    let formData: FormData = new FormData();
+    formData.append('name', member.name);
+    formData.append('surname', member.surname);
+    formData.append('phone', member.phone);
+    formData.append('email', member.email);
+    if (fileToUpload) {
+      formData.append('photo', fileToUpload, fileToUpload.name);
+    }
+    return this.httpClient.put(
+      this.baseUrl + 'members/' + member.id + '/',
+      formData
+    );
   }
 
   removeMember(id: number): Observable<any> {
-    return this.httpClient.delete(this.baseUrl + 'members/' + id + '/',
-    {
+    return this.httpClient.delete(this.baseUrl + 'members/' + id + '/', {
       headers: this.httpHeaders,
     });
   }

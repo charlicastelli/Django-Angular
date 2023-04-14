@@ -1,8 +1,8 @@
 <h1>Novo membro</h1>
 
-<!-- <input type="file" (change)="onImageChanged($event)" /> <br> <br> -->
-<input type="text" [(ngModel)]="member.name"> <br>
-<input type="text" [(ngModel)]="member.surname"> <br>
-<input type="text" [(ngModel)]="member.phone"> <br>
-<input type="text" [(ngModel)]="member.email"> <br>
-<button (click)="save()">Salvar</button> <br><br>
+<input type="file" (change)="onFileSelected($event)" /> <br />
+<input type="text" [(ngModel)]="member.name" /> <br />
+<input type="text" [(ngModel)]="member.surname" /> <br />
+<input type="text" [(ngModel)]="member.phone" /> <br />
+<input type="text" [(ngModel)]="member.email" /> <br />
+<button (click)="save()">Salvar</button> <br /><br />

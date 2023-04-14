@@ -9,13 +9,22 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./new-member.component.scss'],
 })
 export class NewMemberComponent {
-  member = { name: '', surname: '', phone: '', email: '', photo: '' };
-  
+  member = { name: '', surname: '', phone: '', email: '' };
+  fileToUpload!: File;
 
   constructor(private api: ApiService, private appComponent: AppComponent) {}
 
   save() {
-    this.api.saveNewMember(this.member).subscribe(
+    const formData = new FormData();
+    formData.append('name', this.member.name);
+    formData.append('surname', this.member.surname);
+    formData.append('phone', this.member.phone);
+    formData.append('email', this.member.email);
+    if (this.fileToUpload) {
+      formData.append('photo', this.fileToUpload, this.fileToUpload.name);
+    }
+
+    this.api.saveNewMember(formData).subscribe(
       (data) => {
         this.appComponent.members.push(data);
       },
@@ -25,9 +34,7 @@ export class NewMemberComponent {
     );
   }
 
-  // onImageChanged(event: any) {
-  //   this.member.photo = event.target.files[0];
-  //   console.log(this.member.photo);
-  // }
-
+  onFileSelected(event: any) {
+    this.fileToUpload = event.target.files.item(0);
+  }
 }

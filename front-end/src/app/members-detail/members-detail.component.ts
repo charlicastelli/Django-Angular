@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
-import { ApiService } from './api.service';
 import { AppComponent } from '../app.component';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-members-detail',
@@ -18,6 +18,7 @@ export class MembersDetailComponent implements OnInit {
     photo: '',
     email: '',
   };
+  fileToUpload!: File;
   selected_id!: number;
 
   constructor(
@@ -53,14 +54,17 @@ export class MembersDetailComponent implements OnInit {
   }
 
   update() {
-    this.api.updateMember(this.selected_member).subscribe(
+    this.api.updateMember(this.selected_member, this.fileToUpload).subscribe(
       (data) => {
-        this.selected_member = data;
+        this.router.navigate(['/']);
       },
       (error) => {
-        console.log('Aconteceu um erro no updateMember');
+        console.log('Ocorreu um erro na atualização.');
       }
     );
+  }
+  onFileSelected(event: any) {
+    this.fileToUpload = event.target.files.item(0);
   }
 
   newMember() {
@@ -69,9 +73,9 @@ export class MembersDetailComponent implements OnInit {
 
   deleteMember() {
     this.api.removeMember(this.selected_id).subscribe(
-      data => {
+      (data) => {
         let index;
-        this.appComponent.members.forEach((e, i) =>{
+        this.appComponent.members.forEach((e, i) => {
           if (e.id == this.selected_id) {
             index = i;
           }
