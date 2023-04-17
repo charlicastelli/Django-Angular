@@ -1,8 +1,11 @@
-<h1>Novo membro</h1>
+<div class="container">
+  <h1>Novo membro</h1>
 
-<input type="file" (change)="onFileSelected($event)" /> <br />
-<input type="text" [(ngModel)]="member.name" /> <br />
-<input type="text" [(ngModel)]="member.surname" /> <br />
-<input type="text" [(ngModel)]="member.phone" /> <br />
-<input type="text" [(ngModel)]="member.email" /> <br />
-<button (click)="save()">Salvar</button> <br /><br />
+  <input type="file" (change)="onFileSelected($event)" /> <br />
+  <input type="text" [(ngModel)]="member.name" placeholder="Nome" /> <br />
+  <input type="text" [(ngModel)]="member.surname" placeholder="Sobrenome" />
+  <br />
+  <input type="text" [(ngModel)]="member.phone" placeholder="Telefone" /> <br />
+  <input type="text" [(ngModel)]="member.email" placeholder="Email" /> <br />
+  <button (click)="save()">Salvar</button> <br /><br />
+</div>
